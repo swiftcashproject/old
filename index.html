@@ -1,0 +1,45 @@
+<html>
+<head>
+  <title>SwiftCash v3.0</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="swiftcash.js" language="javascript"></script>
+  <script language="javascript">
+	function convertAddr() {
+		var addr = document.getElementById("address").value;
+		var newAddr = swiftcash.convertAddress(addr);
+		document.getElementById("address").value = newAddr;
+		document.getElementById("address").disabled = true;
+		document.getElementById("butAddr").disabled = true;
+ 	}
+
+        function convertPrivkey() {
+                var addr = document.getElementById("privateKey").value;
+                var newAddr = swiftcash.convertPrivateKey(addr);
+                document.getElementById("privateKey").value = newAddr;
+                document.getElementById("privateKey").disabled = true;
+                document.getElementById("butPrivkey").disabled = true;
+        }
+  </script>
+</head>
+
+<body style="text-align: center;">
+
+<br/>
+<br/>
+
+<h1>Converting Old Addresses/Private Keys</h1>
+
+<br/>
+<hr/>
+<br/>
+
+<input style="width: 355px" type="text" id="address" placeholder="Enter an old SWIFT address" />
+<input type="button" id="butAddr" value="Convert Address" onclick="convertAddr();" />
+
+<br/><br/>
+
+<input style="width: 510px" type="text" id="privateKey" placeholder="Enter an old SWIFT private key" />
+<input type="button" id="butPrivkey" value="Convert Private Key" onclick="convertPrivkey();" />
+
+</body>
+</html>
